@@ -2,7 +2,11 @@ import "./chat.css"
 
 const Chat = () => {
     return (
-        <div className='chat'>Chat</div>
+        <div className='chat'>
+            <div className='top'></div>
+            <div className='center'></div>
+            <div className='bottom'></div>
+        </div>
     )
 }
 export default Chat;
