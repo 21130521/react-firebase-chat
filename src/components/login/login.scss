@@ -49,11 +49,16 @@
         width: 100%;
         padding: 20px;
         border: none;
-        background-color: #5082fc;
+        background-color: #1f8ef1;
         border-radius: 5px;
         cursor: pointer;
         font-weight: 500;
         color: white;
+
+        &:disabled{
+          cursor: not-allowed;
+          background-color: rgba(31, 142, 241, 0.55);
+        }
       }
     }
   }
