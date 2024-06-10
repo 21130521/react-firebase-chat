@@ -6,22 +6,20 @@ export const useUserStore = create((set) => ({
     currentUser: null,
     isLoading: true,
     fetchUserInfo: async (uid) => {
-        // If there is no user id, the user had logout
-        if (!uid) return set({currentUser: null, isLoading: false})
-        const docRef = doc(db, "user", uid);
-        const docSnap = await getDoc(docRef);
+        if (!uid) return set({currentUser: null, isLoading: false});
 
         try {
+            const docRef = doc(db, "users", uid);
+            const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                set({currentUser: docSnap.data(), isLoading: false})
+                set({currentUser: docSnap.data(), isLoading: false});
             } else {
-                set({currentUser: null, isLoading: false})
+                set({currentUser: null, isLoading: false});
             }
-
         } catch (err) {
-            console.log(err)
-            return set({currentUser: null, isLoading: false})
+            console.log(err);
+            return set({currentUser: null, isLoading: false});
         }
-    },
+    }
 }));
